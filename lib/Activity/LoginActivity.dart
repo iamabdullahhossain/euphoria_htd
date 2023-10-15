@@ -1,4 +1,6 @@
+import 'package:euphoria_htd/Activity/HomeActivity.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class LoginActivity extends StatefulWidget {
   const LoginActivity({super.key});
@@ -8,6 +10,9 @@ class LoginActivity extends StatefulWidget {
 }
 
 class _LoginActivityState extends State<LoginActivity> {
+  var userNameTF = TextEditingController();
+  var passwordTF = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,27 +59,14 @@ class _LoginActivityState extends State<LoginActivity> {
                 ],
               ),
               SizedBox(
-                height: 100,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 10, bottom: 20),
-                child: Row(
-                  children: [
-                    Text(
-                      "Login".toUpperCase(),
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 30),
-                    ),
-                  ],
-                ),
+                height: 80,
               ),
               Column(
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(right: 20, left: 10),
                     child: TextFormField(
+                      controller: userNameTF,
                       style: TextStyle(color: Colors.white),
                       cursorColor: Colors.white,
                       decoration: InputDecoration(
@@ -100,6 +92,7 @@ class _LoginActivityState extends State<LoginActivity> {
                   Padding(
                     padding: const EdgeInsets.only(right: 20, left: 10),
                     child: TextFormField(
+                      controller: passwordTF,
                       style: TextStyle(color: Colors.white),
                       obscureText: true,
                       obscuringCharacter: "*",
@@ -120,9 +113,43 @@ class _LoginActivityState extends State<LoginActivity> {
                   )
                 ],
               ),
-
-
-
+              SizedBox(
+                height: 20,
+              ),
+              Container(
+                height: 45,
+                width: 200,
+                margin: EdgeInsets.only(top: 20),
+                child: ElevatedButton(
+                  onPressed: () {
+                    if (userNameTF.text == "iamabdullahhossain" &&
+                        passwordTF.text == "123456") {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => HomeActivity()));
+                    } else if (userNameTF.text.isEmpty ||
+                        passwordTF.text.isEmpty) {
+                      Fluttertoast.showToast(
+                          msg: "Please fillup all credentials!",
+                          gravity: ToastGravity.BOTTOM);
+                    } else {
+                      Fluttertoast.showToast(
+                          msg: "Credentials not matched!",
+                          gravity: ToastGravity.BOTTOM);
+                    }
+                  },
+                  style:
+                      OutlinedButton.styleFrom(backgroundColor: Colors.yellow),
+                  child: Text(
+                    "Login".toUpperCase(),
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
             ],
           ),
         ),
