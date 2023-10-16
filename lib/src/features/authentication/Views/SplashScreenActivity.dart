@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:euphoria_htd/Activity/LoginActivity.dart';
+import 'package:euphoria_htd/src/features/authentication/Views/LoginActivity.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreenActivity extends StatefulWidget {

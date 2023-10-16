@@ -1,4 +1,4 @@
-import 'package:euphoria_htd/Activity/SplashScreenActivity.dart';
+import 'package:euphoria_htd/src/features/authentication/Views/SplashScreenActivity.dart';
 import 'package:flutter/material.dart';
 
 void main() {

@@ -1,4 +1,4 @@
-import 'package:euphoria_htd/Activity/HomeActivity.dart';
+import 'package:euphoria_htd/src/features/authentication/Views/HomeActivity.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -19,7 +19,7 @@ class _LoginActivityState extends State<LoginActivity> {
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
         child: Container(
-          margin: EdgeInsets.only(top: 40, left: 15),
+          margin: EdgeInsets.only(top: 40, left: 15, right: 15),
           child: Column(
             children: [
               Row(
@@ -146,6 +146,34 @@ class _LoginActivityState extends State<LoginActivity> {
                     style: TextStyle(color: Colors.black),
                   ),
                 ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      height: 2.0,
+                      width: MediaQuery.of(context).size.width * 0.4,
+                      color: Colors.white,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "OR",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      height: 2.0,
+                      width: MediaQuery.of(context).size.width * 0.4,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
               ),
               SizedBox(
                 height: 20,
